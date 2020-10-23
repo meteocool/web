@@ -1,17 +1,21 @@
 <script>
-	import logo from "../assets/logo.svg";
+    import logo from "../assets/logo.svg";
     import InlineSVG from 'svelte-inline-svg'
-	import About from './About.svelte';
+    import About from './About.svelte';
 
-	let showAbout = false;
+    let showAbout = false;
     import '@shoelace-style/shoelace/dist/shoelace/shoelace.css';
-    import { defineCustomElements, setAssetPath } from '@shoelace-style/shoelace';
+    import {
+        defineCustomElements,
+        setAssetPath
+    } from '@shoelace-style/shoelace';
 
     setAssetPath(document.currentScript.src);
     defineCustomElements();
+
 </script>
 
-<style>
+<!-- <style>
     .logo-wrapper {
         z-index: 10;
         position: absolute;
@@ -45,10 +49,28 @@
     .claim {
         font-size: max(1.5vh, 8px);
     }
-</style>
+</style> -->
 
-<div class="logo-wrapper">
-    <InlineSVG src={logo} alt="meteocool" class="logo" style="height: 90%; float: left; padding: 0.5vh 1vh 1vh; "/>
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <InlineSVG src={logo} alt="meteocool" class="navbar-item" style="height: 42px;" />
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          About
+        </a>
+
+        <a class="navbar-item">
+          Apps
+        </a>
+      </div>
+      </div>
+  </nav>
+
+<!-- <div class="logo-wrapper">
     <div class="name">meteocool.com</div>
     <div class="claim"><span on:click="{() => showAbout = true}">Find out more, get the App!</span></div>
     {#if showAbout}
@@ -57,4 +79,4 @@
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo doloribus tenetur dolorem vero rem minus numquam. Voluptate, tenetur dolore, quidem quae voluptas voluptatibus itaque minus eligendi adipisci quibusdam dignissimos quo!
 	</About>
     {/if}
-</div>
+</div> -->

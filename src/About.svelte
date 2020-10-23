@@ -49,7 +49,7 @@
 	<sl-button autofocus on:click={close}>close modal</sl-button>
 </div>
 
-<style>
+<!-- <style>
 	.modal-background {
 		position: fixed;
 		top: 0;
@@ -72,4 +72,4 @@
 		border-radius: 0.2em;
 		background: white;
 	}
-</style>
+</style> -->
