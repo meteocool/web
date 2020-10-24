@@ -1,9 +1,7 @@
 <script>
+    import {onMount} from 'svelte';
     import logo from "../assets/logo.svg";
     import InlineSVG from 'svelte-inline-svg'
-    import About from './About.svelte';
-
-    let showAbout = false;
     import '@shoelace-style/shoelace/dist/shoelace/shoelace.css';
     import {
         defineCustomElements,
@@ -13,9 +11,17 @@
     setAssetPath(document.currentScript.src);
     defineCustomElements();
 
+    onMount(() => {
+        const dialog = document.querySelector('.dialog-overview');
+        const openButton = document.getElementById('about')
+        const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+
+        openButton.addEventListener('click', () => dialog.show());
+        closeButton.addEventListener('click', () => dialog.hide());
+    });
 </script>
 
-<!-- <style>
+<style>
     .logo-wrapper {
         z-index: 10;
         position: absolute;
@@ -49,34 +55,27 @@
     .claim {
         font-size: max(1.5vh, 8px);
     }
-</style> -->
+</style>
 
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/">
-        <InlineSVG src={logo} alt="meteocool" class="navbar-item" style="height: 42px;" />
-      </a>
+        <a class="navbar-item" href="/">
+            <InlineSVG src={logo} alt="meteocool" class="navbar-item" style="height: 42px;" />
+        </a>
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item">
-          About
-        </a>
+        <div class="navbar-start">
+            <a class="navbar-item" id="about">About & Apps</a>
+        </div>
+    </div>
+</nav>
 
-        <a class="navbar-item">
-          Apps
-        </a>
-      </div>
-      </div>
-  </nav>
+<sl-dialog label="meteocool" class="dialog-overview">
+    <a href="https://itunes.apple.com/app/meteocool-rain-radar/id1438364623">iOS</a> & <a href="https://play.google.com/store/apps/details?id=com.meteocool">Android</a><br>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo doloribus tenetur dolorem vero rem minus numquam. Voluptate, tenetur dolore, quidem quae voluptas voluptatibus itaque minus eligendi adipisci quibusdam dignissimos quo!
+    <sl-button slot="footer" type="primary">Close</sl-button>
+</sl-dialog>
 
-<!-- <div class="logo-wrapper">
+<div class="logo-wrapper">
     <div class="name">meteocool.com</div>
-    <div class="claim"><span on:click="{() => showAbout = true}">Find out more, get the App!</span></div>
-    {#if showAbout}
-	<About on:close="{() => showAbout = false}">
-        <a href="https://itunes.apple.com/app/meteocool-rain-radar/id1438364623">iOS</a> & <a href="https://play.google.com/store/apps/details?id=com.meteocool">Android</a>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo doloribus tenetur dolorem vero rem minus numquam. Voluptate, tenetur dolore, quidem quae voluptas voluptatibus itaque minus eligendi adipisci quibusdam dignissimos quo!
-	</About>
-    {/if}
-</div> -->
+</div>
