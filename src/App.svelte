@@ -7,7 +7,7 @@
     import * as Sentry from "@sentry/browser";
     import {Integrations} from "@sentry/tracing";
     import {Settings} from "./lib/Settings";
-    import View from "ol/View";
+    import {View} from "ol";
     import {RadarCapability} from "./lib/RadarCapability";
     import {SatelliteCapability} from "./lib/SatelliteCapability";
     import {WeatherCapability} from "./lib/WeatherCapability";

@@ -1,6 +1,5 @@
 <script>
-    import logo from "../assets/logo.svg";
-    import InlineSVG from 'svelte-inline-svg'
+    import Logo from "../public/logo.svg";
     import About from './About.svelte';
 
     let showAbout = false;
@@ -51,11 +50,13 @@
 
     .claim {
         font-size: max(1.5vh, 8px);
+        margin: -2.2vh 0 0 6.5vh;
     }
 </style>
 
 <div class="logo-wrapper">
-    <InlineSVG src={logo} alt="meteocool" class="logo" style="height: 90%; float: left; padding: 0.5vh 1vh 1vh; " />
+    <!-- <InlineSVG src={logo} alt="meteocool" class="logo" style="height: 90%; float: left; padding: 0.5vh 1vh 1vh; " /> -->
+    <Logo height="90%" float="left" padding="0.2vh 1vh 1vh"/>
     <div class="name">meteocool.com</div>
     <!-- <div class="claim">Get the App! <a href="https://itunes.apple.com/app/meteocool-rain-radar/id1438364623">iOS</a> & <a href="
 https://play.google.com/store/apps/details?id=com.meteocool">Android</a>
